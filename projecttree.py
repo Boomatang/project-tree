@@ -2,6 +2,8 @@ from os import path
 from pathlib import Path as p
 from datetime import datetime
 import sys
+from JobFolders import setup_job
+
 
 folders_list = ["testing", "app", "invoices", "pictures"]
 year = str(datetime.utcnow().year)
@@ -89,6 +91,7 @@ def summary():
 
 if __name__ == '__main__':
     clint, project_name, project_number = data_input()
-    check_number()
-    create_folders()
-    summary()
+    setup_job(project_number)
+    #check_number()
+    #create_folders()
+    #summary()
