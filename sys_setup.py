@@ -64,7 +64,7 @@ def create_job_folders(root):
             item.mkdir()
 
 if __name__ == '__main__':
-    system_path, folders, job_archive,required, files = setup_sys()
+    system_path, folders, job_archive, required, files = setup_sys()
 
     print("Jobs Path: " + system_path)
     print("Archive Path: " + job_archive)

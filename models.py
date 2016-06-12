@@ -41,6 +41,15 @@ class JobOjbs(Base):
 
         self.create_date = datetime.utcnow()
 
+    def copy_file(self, required_path):
+        obj = P(self.object_path)
+        if not obj.exists() and not obj.is_file():
+            obj.touch()
+            shutil.copyfile(path.join(required_path, obj.name), str(obj))
+
+
+
+
     def __repr__(self):
         return "<Document %s>" % self.name
 
