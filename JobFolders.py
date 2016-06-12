@@ -39,7 +39,9 @@ def create_job_dir(root, prefix, number):
     job = root.joinpath(prefix + "-" + number)
 
     if job.exists():
-        print('That job number already exists')
+        print(
+            "That job number already exists but if extra folders had been \n"
+            "added to the system configuration, these would be created.")
     else:
         job.mkdir()
     return job
@@ -52,27 +54,27 @@ def create_job_folders(root, folder_list):
             item.mkdir()
 
 
-time = datetime.utcnow()
-year = str(time.year)
-month = time.month
-if month < 10:
-    month = "0" + str(month)
-else:
-    month = str(month)
-yy_mm = year[2:] + "-" + month
-
-# Set up the system variables
-sys_path, folders = setup_sys()
-
-
 def setup_job(job_number):
+    """
+    Create the Job folder system
+    :param job_number: The number of the job been created this most be a string
+    :return:
+    """
+    time = datetime.utcnow()
+    year = str(time.year)
+    month = time.month
+    if month < 10:
+        month = "0" + str(month)
+    else:
+        month = str(month)
+    yy_mm = year[2:] + "-" + month
+
+    # Set up the system variables
+    sys_path, folders = setup_sys()
+
     year_folder = create_yr_dir(sys_path, year)
     job_root = create_job_dir(year_folder, yy_mm, job_number)
     create_job_folders(job_root, folders)
 
 if __name__ == '__main__':
-
-    # make the top level folders
-    year_folder = create_yr_dir(sys_path, year)
-    job_root = create_job_dir(year_folder, yy_mm, argv[1])
-    create_job_folders(job_root, folders)
+    setup_job(argv[1])

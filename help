@@ -1,0 +1,15 @@
+from models import Jobs
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from datetime import datetime
+
+engine = create_engine('sqlite:///data.db')
+Session = sessionmaker()
+Session.configure(bind=engine)
+session = Session()
+
+query = session.query(Jobs)
+query.all()
+
+job = query.filter(Jobs.number == 1).one()
+job
