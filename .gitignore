@@ -190,3 +190,4 @@ open of a deleted file
 # Temp folder
 tmp/
 .idea/
+*.db

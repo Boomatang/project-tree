@@ -115,7 +115,7 @@ class Jobs(Base):
             oh = JobOjbs(job_number=self.number, job_year=self.year, object_path=link)
             oh.setup()
             finds.append(oh)
-            print(oh)
+            # print(oh)
         return finds
 
     def __repr__(self):

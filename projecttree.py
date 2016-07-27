@@ -4,7 +4,7 @@ from models import Jobs, JobOjbs
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
-from sys_setup import  required, files
+from sys_setup import required, files
 
 engine = create_engine('sqlite:///data.db')
 Session = sessionmaker()

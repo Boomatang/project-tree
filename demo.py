@@ -4,7 +4,8 @@ from models import Jobs, JobOjbs
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
-from sys import argv, path
+from sys import argv
+from os import path
 
 from sys_setup import files, required
 
